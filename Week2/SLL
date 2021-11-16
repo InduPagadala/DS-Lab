@@ -1,0 +1,189 @@
+#include<stdio.h>
+  2 #include<stdlib.h>
+  3 
+  4 struct node{
+  5         int data;
+  6         struct node*link;
+  7 };
+  8 struct node*head = NULL,*cur,*temp,*temp1;
+  9 struct node*create(){
+ 10         int n;
+ 11         printf("Enter no. of nodes:");
+ 12         scanf("%d",&n);
+ 13         while(n--){
+ 14                 cur = (struct node*)malloc(sizeof(struct node));
+ 15                 scanf("%d",&(cur->data));
+ 16                 cur->link=NULL;
+ 17                 if(head==NULL){
+ 18                          head = cur;
+ 19                 }
+ 20                 else{
+ 21                         temp=head;
+ 22                 while(temp->link!=NULL){
+ 23                         temp=temp->link;
+ 24                 }
+ 25                 temp->link=cur;
+ 26                 }
+ 27         }
+ 28         return head;
+ 29 }
+ 30 
+ 31 struct node*insert_begin(int ele){
+ 32         cur = (struct node*)malloc(sizeof(struct node));
+ 33         cur->data=ele;
+ 34         cur->link=head;
+ 35         head=cur;
+ 36         return head;
+ 37 }
+struct node*insert_end(int ele){
+ 40         cur = (struct node*)malloc(sizeof(struct node));
+ 41         cur->data=ele;
+ 42         cur->link=NULL;
+ 43         temp=head;
+ 44         while(temp->link!=NULL)
+ 45                 temp=temp->link;
+ 46         temp->link=cur;
+ 47         return head;
+ 48 }
+ 49 
+ 50 struct node*insert_pos(int pos,int ele){
+ 51         int c=1;
+ 52         cur = (struct node*)malloc(sizeof(struct node));
+ 53         cur->data=ele;
+ 54         temp=head;
+ 55         while(c<pos-1){
+ 56                 temp=temp->link;
+ 57                 c++;
+ 58         }
+ 59         cur->link=temp->link;
+ 60         temp->link=cur;
+ 61         return head;
+ 62 }
+ 63 
+ 64 struct node*delete_begin(struct node*head){
+ 65         temp=head;
+ 66         head=temp->link;
+ 67         printf("deleted element %d",temp->data);
+ 68         free(temp);
+ 69         return head;
+ 70 }
+ 71 
+ 72 struct node*delete_end(struct node*head){
+ 73         temp=head;
+while(temp->link!=NULL){
+ 75                 temp1=temp;
+ 76                 temp=temp->link;
+ 77         }
+ 78         temp1->link=NULL;
+ 79         printf("deleted element %d",temp->data);
+ 80         free(temp);
+ 81         return head;
+ 82 }
+ 83 
+ 84 struct node*delete_pos(struct node*head,int pos){
+ 85         temp=head;
+ 86         int c=1;
+ 87         while(c<pos){
+ 88                 temp1=temp;
+ 89                 temp=temp->link;
+ 90                 c++;
+ 91         }
+ 92         temp1->link=temp->link;
+ 93         printf("deleted element %d",temp->data);
+ 94         free(temp);
+ 95         return head;
+ 96 }
+ 97 
+ 98 void display(struct node*head){
+ 99         temp = head;
+100         while(temp != NULL){
+101                 printf(" %d ->",temp->data);
+102                 temp = temp->link;
+103         }
+104 }
+void reverse_display(struct node*head){
+107         if(head!=NULL){
+108                 reverse_display(head->link);
+109                 printf("%d->",head->data);
+110         }
+111 }
+112 
+113 int search(struct node*head,int key){
+114         int c=1;
+115         temp=head;
+116         while(temp!=NULL){
+117                 if(key==temp->data){
+118                         return c;
+119                 }
+120                 temp=temp->link;
+121                 c++;
+122         }
+123         return -1;
+124 }
+125 
+126 struct node*sorting(struct node*head){
+127         int x;
+128         temp=head;
+129         while(temp!=NULL){
+130                 temp1=head;
+131                 while(temp1!=NULL){
+132                         if(temp1->data>temp1->link->data){
+133                                 x=temp1->data;
+134                                 temp1->data=temp1->link->data;
+135                                 temp1->link->data=x;
+136                         }
+137                         temp1=temp1->link;
+
+}
+139                 temp=temp->link;
+140         }
+141         return head;
+142 }
+143 
+144 int main(){
+145         int ch,ele,pos,key;
+146         while(1){
+147                 printf("\n1-create\n2-insert at begin\n3-insert at end\n4-insert at pos\n5-delete at begin\n6-delete at end\n7-delete at p    os    \n8-display\n9-reverse display\n10-search\n11-sort\n12-exit\n");
+148                 printf("Enter your choice");
+149                 scanf("%d",&ch);
+150                 switch(ch){
+151                         case 1 : head = create();
+152                                  break;
+153                         case 2 : scanf("%d",&ele);
+154                                  head = insert_begin(ele);
+155                                  break;
+156                         case 3 : scanf("%d",&ele);
+157                                  head = insert_end(ele);
+158                                  break;
+159                         case 4 : scanf("%d",&pos);
+160                                  scanf("%d",&ele);
+161                                  head = insert_pos(pos,ele);
+162                                  break;
+163                         case 5 : head = delete_begin(head);
+164                                  break;
+165                         case 6 : head = delete_end(head);
+166                                  break;
+167                         case 7 : scanf("%d",&pos);
+168                                  head = delete_pos(head,pos);
+169                                  break;
+170                         case 8 : display(head);
+171                                  break;
+172                         case 9 : reverse_display(head);
+173                                  break;
+174                         case 10 : scanf("%d",&key);
+175                                   pos = search(head,key);
+176                                   if(pos==-1){
+177                                           printf("element not found");
+178                                   }
+179                                   else{
+180                                           printf("element found at %d",pos);
+181                                   }
+182                                   break;
+183                         case 11 : head = sorting(head);
+184                                   break;
+185                         case 12 : exit(0);
+186                 }
+187         }
+188 }
+189 
+190 
