@@ -128,15 +128,16 @@ struct node*sorting(struct node*head){
     int x;
     temp=head;
     while(temp!=NULL){
-            temp1=head;
+            temp1=temp->link;
             while(temp1!=NULL){
-                    if(temp1->data>temp1->link->data){
-                            x=temp1->data;
-                            temp1->data=temp1->link->data;
-                            temp1->link->data=x;
+                    if(temp->data>temp1->data){
+                            x=temp->data;
+                            temp->data=temp1->data;
+                            temp1->data=x;
                     }
                     temp1=temp1->link;
             }
+            temp=temp->link;
     }
     return head;
  }
@@ -204,8 +205,254 @@ output:
 
 Enter your choice : 1
 Enter no. of nodes:2
-2
 3
+2
+
+1-create
+2-insert at begin
+3-insert at end
+4-insert at pos
+5-delete at begin
+6-delete at end
+7-delete at pos
+8-display
+9-reverse display
+10-search
+11-sort
+12-exit
+
+Enter your choice : 8
+ 3 -> 2 ->
+1-create
+2-insert at begin
+3-insert at end
+4-insert at pos
+5-delete at begin
+6-delete at end
+7-delete at pos
+8-display
+9-reverse display
+10-search
+11-sort
+12-exit
+
+Enter your choice : 2
+5
+
+1-create
+2-insert at begin
+3-insert at end
+4-insert at pos
+5-delete at begin
+6-delete at end
+7-delete at pos
+8-display
+9-reverse display
+10-search
+11-sort
+12-exit
+
+Enter your choice : 8
+ 5 -> 3 -> 2 ->
+1-create
+2-insert at begin
+3-insert at end
+4-insert at pos
+5-delete at begin
+6-delete at end
+7-delete at pos
+8-display
+9-reverse display
+10-search
+11-sort
+12-exit
+
+Enter your choice : 3
+1
+
+1-create
+2-insert at begin
+3-insert at end
+4-insert at pos
+5-delete at begin
+6-delete at end
+7-delete at pos
+8-display
+9-reverse display
+10-search
+11-sort
+12-exit
+
+Enter your choice : 8
+ 5 -> 3 -> 2 -> 1 ->
+1-create
+2-insert at begin
+3-insert at end
+4-insert at pos
+5-delete at begin
+6-delete at end
+7-delete at pos
+8-display
+9-reverse display
+10-search
+11-sort
+12-exit
+
+Enter your choice : 4
+3
+4
+
+1-create
+2-insert at begin
+3-insert at end
+4-insert at pos
+5-delete at begin
+6-delete at end
+7-delete at pos
+8-display
+9-reverse display
+10-search
+11-sort
+12-exit
+
+Enter your choice : 8
+ 5 -> 3 -> 4 -> 2 -> 1 ->
+1-create
+2-insert at begin
+3-insert at end
+4-insert at pos
+5-delete at begin
+6-delete at end
+7-delete at pos
+8-display
+9-reverse display
+10-search
+11-sort
+12-exit
+
+Enter your choice : 5
+deleted element 5
+1-create
+2-insert at begin
+3-insert at end
+4-insert at pos
+5-delete at begin
+6-delete at end
+7-delete at pos
+8-display
+9-reverse display
+10-search
+11-sort
+12-exit
+
+Enter your choice : 8
+ 3 -> 4 -> 2 -> 1 ->
+1-create
+2-insert at begin
+3-insert at end
+4-insert at pos
+5-delete at begin
+6-delete at end
+7-delete at pos
+8-display
+9-reverse display
+10-search
+11-sort
+12-exit
+
+Enter your choice : 6
+deleted element 1
+1-create
+2-insert at begin
+3-insert at end
+4-insert at pos
+5-delete at begin
+6-delete at end
+7-delete at pos
+8-display
+9-reverse display
+10-search
+11-sort
+12-exit
+
+Enter your choice : 8
+ 3 -> 4 -> 2 ->
+1-create
+2-insert at begin
+3-insert at end
+4-insert at pos
+5-delete at begin
+6-delete at end
+7-delete at pos
+8-display
+9-reverse display
+10-search
+11-sort
+12-exit
+
+Enter your choice : 7
+2
+deleted element 4
+1-create
+2-insert at begin
+3-insert at end
+4-insert at pos
+5-delete at begin
+6-delete at end
+7-delete at pos
+8-display
+9-reverse display
+10-search
+11-sort
+12-exit
+
+Enter your choice : 8
+ 3 -> 2 ->
+1-create
+2-insert at begin
+3-insert at end
+4-insert at pos
+5-delete at begin
+6-delete at end
+7-delete at pos
+8-display
+9-reverse display
+10-search
+11-sort
+12-exit
+
+Enter your choice : 9
+2->3->
+1-create
+2-insert at begin
+3-insert at end
+4-insert at pos
+5-delete at begin
+6-delete at end
+7-delete at pos
+8-display
+9-reverse display
+10-search
+11-sort
+12-exit
+
+Enter your choice : 10
+2
+element found at 2
+1-create
+2-insert at begin
+3-insert at end
+4-insert at pos
+5-delete at begin
+6-delete at end
+7-delete at pos
+8-display
+9-reverse display
+10-search
+11-sort
+12-exit
+
+Enter your choice : 11
 
 1-create
 2-insert at begin
@@ -235,236 +482,4 @@ Enter your choice : 8
 11-sort
 12-exit
 
-Enter your choice : 2
-4
-
-1-create
-2-insert at begin
-3-insert at end
-4-insert at pos
-5-delete at begin
-6-delete at end
-7-delete at pos
-8-display
-9-reverse display
-10-search
-11-sort
-12-exit
-
-Enter your choice : 8
- 4 -> 2 -> 3 ->
-1-create
-2-insert at begin
-3-insert at end
-4-insert at pos
-5-delete at begin
-6-delete at end
-7-delete at pos
-8-display
-9-reverse display
-10-search
-11-sort
-12-exit
-
-Enter your choice : 3
-5
-
-1-create
-2-insert at begin
-3-insert at end
-4-insert at pos
-5-delete at begin
-6-delete at end
-7-delete at pos
-8-display
-9-reverse display
-10-search
-11-sort
-12-exit
-
-Enter your choice : 8
- 4 -> 2 -> 3 -> 5 ->
-1-create
-2-insert at begin
-3-insert at end
-4-insert at pos
-5-delete at begin
-6-delete at end
-7-delete at pos
-8-display
-9-reverse display
-10-search
-11-sort
-12-exit
-
-Enter your choice : 4
-2
-1
-
-1-create
-2-insert at begin
-3-insert at end
-4-insert at pos
-5-delete at begin
-6-delete at end
-7-delete at pos
-8-display
-9-reverse display
-10-search
-11-sort
-12-exit
-
-Enter your choice : 8
- 4 -> 1 -> 2 -> 3 -> 5 ->
-1-create
-2-insert at begin
-3-insert at end
-4-insert at pos
-5-delete at begin
-6-delete at end
-7-delete at pos
-8-display
-9-reverse display
-10-search
-11-sort
-12-exit
-
-Enter your choice : 5
-deleted element 4
-1-create
-2-insert at begin
-3-insert at end
-4-insert at pos
-5-delete at begin
-6-delete at end
-7-delete at pos
-8-display
-9-reverse display
-10-search
-11-sort
-12-exit
-
-Enter your choice : 8
- 1 -> 2 -> 3 -> 5 ->
-1-create
-2-insert at begin
-3-insert at end
-4-insert at pos
-5-delete at begin
-6-delete at end
-7-delete at pos
-8-display
-9-reverse display
-10-search
-11-sort
-12-exit
-
-Enter your choice : 6
-deleted element 5
-1-create
-2-insert at begin
-3-insert at end
-4-insert at pos
-5-delete at begin
-6-delete at end
-7-delete at pos
-8-display
-9-reverse display
-10-search
-11-sort
-12-exit
-
-Enter your choice : 8
- 1 -> 2 -> 3 ->
-1-create
-2-insert at begin
-3-insert at end
-4-insert at pos
-5-delete at begin
-6-delete at end
-7-delete at pos
-8-display
-9-reverse display
-10-search
-11-sort
-12-exit
-
-Enter your choice : 7
-2
-deleted element 2
-1-create
-2-insert at begin
-3-insert at end
-4-insert at pos
-5-delete at begin
-6-delete at end
-7-delete at pos
-8-display
-9-reverse display
-10-search
-11-sort
-12-exit
-
-Enter your choice : 8
- 1 -> 3 ->
-1-create
-2-insert at begin
-3-insert at end
-4-insert at pos
-5-delete at begin
-6-delete at end
-7-delete at pos
-8-display
-9-reverse display
-10-search
-11-sort
-12-exit
-
-Enter your choice : 9
-3->1->
-1-create
-2-insert at begin
-3-insert at end
-4-insert at pos
-5-delete at begin
-6-delete at end
-7-delete at pos
-8-display
-9-reverse display
-10-search
-11-sort
-12-exit
-
-Enter your choice : 10
-3
-element found at 2
-1-create
-2-insert at begin
-3-insert at end
-4-insert at pos
-5-delete at begin
-6-delete at end
-7-delete at pos
-8-display
-9-reverse display
-10-search
-11-sort
-12-exit
-
-1-create
-2-insert at begin
-3-insert at end
-4-insert at pos
-5-delete at begin
-6-delete at end
-7-delete at pos
-8-display
-9-reverse display
-10-search
-11-sort
-12-exit
-
 Enter your choice : 12
-
-Process returned 0 (0x0)   execution time : 12.329 s
-Press any key to continue.
